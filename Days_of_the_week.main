@@ -1,0 +1,31 @@
+// for days of the week
+enum Days_of_Week {
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+}
+
+// The Superclass
+class Week {
+    protected Days_of_Week[] days = Days_of_Week.values();
+
+    public void displayDays() {
+        System.out.println("Days of the Week:");
+        for (Days_of_Week day : days) System.out.println(day);
+    }
+}
+
+// The Subclass
+class Weekend extends Week {
+    public void displayWeekend() {
+        System.out.println("\nWeekend Days:");
+        for (Days_of_Week day : days)
+            if (day.ordinal() >= 5) System.out.println(day); // SATURDAY and SUNDAY are 5 and 6
+    }
+}
+
+// Main class for the model
+public class Main {
+    public static void main(String[] args) {
+        new Week().displayDays();
+        new Weekend().displayWeekend();
+    }
+}
